@@ -9,11 +9,11 @@
     当前文件夹会生成一个`rust.sh`文件
 
 2. 替换国内源
-    打开 rust.sh，替换 `RUSTUP_UPDATE_ROOT` 为：`RUSTUP_UPDATE_ROOT="https://mirrors.ustc.edu.cn/rust-static/rustup"`
+    打开 rust.sh，替换 `RUSTUP_UPDATE_ROOT` 为：`RUSTUP_UPDATE_ROOT="https://mirrors.aliyun.com/rust-static/rustup"`
     保存退出。
 
 3. 然后修改环境变量：
-    `export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup`
+    `export RUSTUP_DIST_SERVER=https://mirrors.aliyun.com/rustup`
 
 4. 安装
     给安装脚本加上可执行权限，然后执行即可开始下载并安装 Rust：
@@ -55,3 +55,14 @@
     [source.rustcc]
     registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
     ```
+
+7 . rustup update 也缓慢 同样更新:
+
+```bush
+~/.bash_profile
+
+修改 export RUSTUP_UPDATE_ROOT="https://mirrors.aliyun.com/rust-static/rustup"
+修改 export RUSTUP_DIST_SERVER="https://mirrors.aliyun.com/rustup"
+
+source ~/.bash_profile
+```
