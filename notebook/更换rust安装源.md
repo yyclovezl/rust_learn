@@ -66,3 +66,44 @@
 
 source ~/.bash_profile
 ```
+
+## 安装包时候慢的方法
+
+1. 步骤一：进入Cargo配置目录
+    打开终端或命令提示符，进入用户主目录下的.cargo文件夹。在Windows系统中，主目录通常是C:\Users\用户名\，而在类Unix系统中，主目录是/home/用户名/。
+
+    > cd $HOME/.cargo
+
+2. 步骤二：删除.package-cache文件
+    在.cargo目录中，找到并删除名为.package-cache的文件。
+
+    > rm .package-cache
+
+3. 步骤三：创建并编辑配置文件
+    创建一个名为config的文件，注意不要加文件后缀。
+
+    > touch config
+
+    使用文本编辑器打开config文件，并将以下内容添加到文件中：
+
+    ```bush
+    [source.crates-io]
+    replace-with = 'aliyun' # 指定使用下面哪个源，修改为source.后面的内容即可
+    #阿里云
+    [source.aliyun]
+    registry = "sparse+https://mirrors.aliyun.com/crates.io-index/"
+    # 中国科学技术大学
+    [source.ustc]
+    registry = "https://mirrors.ustc.edu.cn/crates.io-index"
+    # 上海交通大学
+    [source.sjtu]
+    registry = "https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index/"
+    # 清华大学
+    [source.tuna]
+    registry = "https://mirrors.tuna.tsinghua.edu.cn/git/crates.io-index.git"
+    # rustcc社区
+    [source.rustcc]
+    registry = "https://code.aliyun.com/rustcc/crates.io-index.git"
+    ```
+
+    保存并关闭文件。
